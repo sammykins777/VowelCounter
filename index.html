@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css" />
+    <style>
+      .flex {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        margin: auto;
+      }
+    </style>
+    <title>Vowel Counter</title>
+  </head>
+  <body>
+    <section class="w3-container w3-center w3-margin-top">
+      <h1>Samantha's Vowel Counter</h1>
+      <div class="flex">
+        <label for="vowel-counter"
+          >Enter a phrase to count the number of vowels</label
+        >
+        <input type="text" id="vowel-counter" />
+        <button type="button" id="submit" class="w3-btn w3-purple w3-section">Submit</button>
+        <div class="vowel-number w3-teal"></div>
+      </div>
+    </section>
+
+    <script>
+      const word = document.querySelector("#vowel-counter");
+      const submit = document.querySelector("#submit");
+      const displayAmount = document.querySelector(".vowel-number");
+      submit.addEventListener("click", () => vowelCounter(word.value));
+
+      function vowelCounter(word) {
+        const wordArray = word.toLowerCase().split("");
+        const vowelsOnly = [];
+        for (var i = 0; i < wordArray.length; i++) {
+          if (
+            wordArray[i] == "a" ||
+            wordArray[i] == "e" ||
+            wordArray[i] == "i" ||
+            wordArray[i] == "o" ||
+            wordArray[i] == "u"
+          ) {
+            vowelsOnly.push(wordArray[i]);
+            console.log(vowelsOnly);
+          }
+        }
+        displayAmount.innerHTML = `The number of vowels: ${vowelsOnly.length}`;
+      }
+    </script>
+  </body>
+</html>
